@@ -1,0 +1,145 @@
+==10250== Memcheck, a memory error detector
+==10250== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10250== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==10250== Command: ./friendlist 1026
+==10250== Parent PID: 3168
+==10250== 
+--10250-- 
+--10250-- Valgrind options:
+--10250--    --leak-check=full
+--10250--    --log-file=logfile.out
+--10250--    -v
+--10250-- Contents of /proc/version:
+--10250--   Linux version 3.10.0-693.5.2.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redhat.com) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) ) #1 SMP Fri Oct 13 10:46:25 EDT 2017
+--10250-- 
+--10250-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--10250-- Page sizes: currently 4096, max supported 4096
+--10250-- Valgrind library directory: /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind
+--10250-- Reading syms from /home/minhp/cs4400/servlab-handout/friendlist
+--10250-- Reading syms from /usr/lib64/ld-2.17.so
+--10250-- Reading syms from /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/memcheck-amd64-linux
+--10250--    object doesn't have a dynamic symbol table
+--10250-- Scheduler: using generic scheduler lock implementation.
+--10250-- Reading suppressions file: /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/default.supp
+==10250== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10250-by-minhp-on-lab1-12.eng.utah.edu
+==10250== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10250-by-minhp-on-lab1-12.eng.utah.edu
+==10250== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10250-by-minhp-on-lab1-12.eng.utah.edu
+==10250== 
+==10250== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10250== don't want to do, unless you know exactly what you're doing,
+==10250== or are doing some strange experiment):
+==10250==   /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/../../bin/vgdb --pid=10250 ...command...
+==10250== 
+==10250== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10250==   /path/to/gdb ./friendlist
+==10250== and then give GDB the following command
+==10250==   target remote | /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/../../bin/vgdb --pid=10250
+==10250== --pid is optional if only one valgrind process is running
+==10250== 
+--10250-- REDIR: 0x40192f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x5805bf11 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--10250-- REDIR: 0x40190c0 (ld-linux-x86-64.so.2:index) redirected to 0x5805bf2b (vgPlain_amd64_linux_REDIR_FOR_index)
+--10250-- Reading syms from /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/vgpreload_core-amd64-linux.so
+--10250-- Reading syms from /usr/local/stow/valgrind/valgrind-3.13.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+==10250== WARNING: new redirection conflicts with existing -- ignoring it
+--10250--     old: 0x040192f0 (strlen              ) R-> (0000.0) 0x5805bf11 vgPlain_amd64_linux_REDIR_FOR_strlen
+--10250--     new: 0x040192f0 (strlen              ) R-> (2007.0) 0x04c2cbe0 strlen
+--10250-- REDIR: 0x4019270 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2dd90 (strcmp)
+--10250-- REDIR: 0x4019e60 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c313a0 (mempcpy)
+--10250-- Reading syms from /usr/lib64/libpthread-2.17.so
+--10250-- Reading syms from /usr/lib64/libc-2.17.so
+--10250-- REDIR: 0x50dbf80 (libc.so.6:strcasecmp) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x50d8d00 (libc.so.6:strnlen) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x50de250 (libc.so.6:strncasecmp) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x50db760 (libc.so.6:memset) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x50db710 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x50d8c20 (libc.so.6:__GI_strlen) redirected to 0x4c2cb40 (__GI_strlen)
+--10250-- REDIR: 0x50da6f0 (libc.so.6:__GI_strrchr) redirected to 0x4c2c590 (__GI_strrchr)
+--10250-- REDIR: 0xffffffffff600400 (???:???) redirected to 0x5805befd (vgPlain_amd64_linux_REDIR_FOR_vtime)
+--10250-- REDIR: 0x50d20c0 (libc.so.6:malloc) redirected to 0x4c29a9d (malloc)
+--10250-- REDIR: 0x50d24c0 (libc.so.6:free) redirected to 0x4c2ac4a (free)
+--10250-- REDIR: 0x50db180 (libc.so.6:__GI_memcmp) redirected to 0x4c2faa0 (__GI_memcmp)
+--10250-- REDIR: 0x50e0990 (libc.so.6:__GI_memcpy) redirected to 0x4c2e8c0 (__GI_memcpy)
+--10250-- REDIR: 0x50d2ab0 (libc.so.6:calloc) redirected to 0x4c2b938 (calloc)
+--10250-- REDIR: 0x50d8e20 (libc.so.6:__GI_strncmp) redirected to 0x4c2d320 (__GI_strncmp)
+--10250-- REDIR: 0x50f1600 (libc.so.6:__GI_strstr) redirected to 0x4c31610 (__strstr_sse2)
+--10250-- REDIR: 0x50dadf0 (libc.so.6:memchr) redirected to 0x4c2de30 (memchr)
+--10250-- REDIR: 0x50e2210 (libc.so.6:strchrnul) redirected to 0x4c30ed0 (strchrnul)
+--10250-- REDIR: 0x50db930 (libc.so.6:__GI_mempcpy) redirected to 0x4c310d0 (__GI_mempcpy)
+--10250-- REDIR: 0x5190a30 (libc.so.6:__strncasecmp_avx) redirected to 0x4c2d580 (strncasecmp)
+--10250-- REDIR: 0x50d71c0 (libc.so.6:__GI_strcmp) redirected to 0x4c2dca0 (__GI_strcmp)
+--10250-- REDIR: 0x50dbe20 (libc.so.6:__GI_stpcpy) redirected to 0x4c2fef0 (__GI_stpcpy)
+--10250-- Reading syms from /usr/lib64/libnss_files-2.17.so
+--10250-- REDIR: 0x50d8650 (libc.so.6:__GI_strcpy) redirected to 0x4c2ccf0 (__GI_strcpy)
+--10250-- REDIR: 0x50e6060 (libc.so.6:__GI_strncpy) redirected to 0x4c2cf10 (__GI_strncpy)
+--10250-- REDIR: 0x50d7100 (libc.so.6:__GI_strchr) redirected to 0x4c2c6c0 (__GI_strchr)
+--10250-- REDIR: 0x50e1fd0 (libc.so.6:rawmemchr) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x518d980 (libc.so.6:__rawmemchr_sse42) redirected to 0x4c30f00 (rawmemchr)
+--10250-- REDIR: 0x50db140 (libc.so.6:bcmp) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x51b2240 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c2fc00 (__memcmp_sse4_1)
+--10250-- REDIR: 0x50e0920 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x5194db0 (libc.so.6:__memcpy_ssse3) redirected to 0x4c2e1e0 (memcpy@@GLIBC_2.14)
+--10250-- REDIR: 0x50d8bd0 (libc.so.6:strlen) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x518efa0 (libc.so.6:__strlen_sse42) redirected to 0x4c2cba0 (__strlen_sse42)
+--10250-- REDIR: 0x50d70c0 (libc.so.6:index) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x5186f70 (libc.so.6:__strchr_sse42) redirected to 0x4c2c780 (index)
+--10250-- REDIR: 0x50d8d30 (libc.so.6:__GI_strnlen) redirected to 0x4c2caf0 (__GI_strnlen)
+--10250-- REDIR: 0x518f3c0 (libc.so.6:__strcasecmp_avx) redirected to 0x4c2d4a0 (strcasecmp)
+--10250-- REDIR: 0x50d25a0 (libc.so.6:realloc) redirected to 0x4c2bb31 (realloc)
+--10250-- REDIR: 0x50d8de0 (libc.so.6:strncmp) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x5187dd0 (libc.so.6:__strncmp_sse42) redirected to 0x4c2d420 (__strncmp_sse42)
+--10250-- REDIR: 0x50d7180 (libc.so.6:strcmp) redirected to 0x4a2470e (_vgnU_ifunc_wrapper)
+--10250-- REDIR: 0x5187020 (libc.so.6:__strcmp_sse42) redirected to 0x4c2dd40 (__strcmp_sse42)
+--10250-- REDIR: 0x50db7c0 (libc.so.6:__GI_memset) redirected to 0x4c30480 (memset)
+==10250== 
+==10250== Process terminating with default action of signal 2 (SIGINT)
+==10250==    at 0x4E4498D: ??? (in /usr/lib64/libpthread-2.17.so)
+==10250==    by 0x404848: Accept (csapp.c:603)
+==10250==    by 0x402140: main (friendlist.c:58)
+--10250-- Discarding syms at 0x58171d0-0x581e3e1 in /usr/lib64/libnss_files-2.17.so due to munmap()
+==10250== 
+==10250== HEAP SUMMARY:
+==10250==     in use at exit: 1,426 bytes in 74 blocks
+==10250==   total heap usage: 905 allocs, 831 frees, 52,524 bytes allocated
+==10250== 
+==10250== Searching for pointers to 74 not-freed blocks
+==10250== Checked 91,376 bytes
+==10250== 
+==10250== 56 (40 direct, 16 indirect) bytes in 2 blocks are definitely lost in loss record 12 of 20
+==10250==    at 0x4C29B0B: malloc (vg_replace_malloc.c:299)
+==10250==    by 0x4031C1: split_string (more_string.c:69)
+==10250==    by 0x4029D2: unfriend_request (friendlist.c:321)
+==10250==    by 0x4029D2: doit (friendlist.c:124)
+==10250==    by 0x402AFE: go_doit (friendlist.c:149)
+==10250==    by 0x4E3DE24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==10250==    by 0x514A34C: clone (in /usr/lib64/libc-2.17.so)
+==10250== 
+==10250== 120 (88 direct, 32 indirect) bytes in 5 blocks are definitely lost in loss record 17 of 20
+==10250==    at 0x4C29B0B: malloc (vg_replace_malloc.c:299)
+==10250==    by 0x4031C1: split_string (more_string.c:69)
+==10250==    by 0x402884: befriend_request (friendlist.c:280)
+==10250==    by 0x402884: doit (friendlist.c:122)
+==10250==    by 0x402AFE: go_doit (friendlist.c:149)
+==10250==    by 0x4E3DE24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==10250==    by 0x514A34C: clone (in /usr/lib64/libc-2.17.so)
+==10250== 
+==10250== 360 bytes in 23 blocks are definitely lost in loss record 20 of 20
+==10250==    at 0x4C29B0B: malloc (vg_replace_malloc.c:299)
+==10250==    by 0x402F35: dictionary_keys (dictionary.c:103)
+==10250==    by 0x402411: friend_request (friendlist.c:234)
+==10250==    by 0x4028F9: unfriend_request (friendlist.c:334)
+==10250==    by 0x4028F9: doit (friendlist.c:124)
+==10250==    by 0x402AFE: go_doit (friendlist.c:149)
+==10250==    by 0x4E3DE24: start_thread (in /usr/lib64/libpthread-2.17.so)
+==10250==    by 0x514A34C: clone (in /usr/lib64/libc-2.17.so)
+==10250== 
+==10250== LEAK SUMMARY:
+==10250==    definitely lost: 488 bytes in 30 blocks
+==10250==    indirectly lost: 48 bytes in 9 blocks
+==10250==      possibly lost: 0 bytes in 0 blocks
+==10250==    still reachable: 890 bytes in 35 blocks
+==10250==         suppressed: 0 bytes in 0 blocks
+==10250== Reachable blocks (those to which a pointer was found) are not shown.
+==10250== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==10250== 
+==10250== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==10250== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

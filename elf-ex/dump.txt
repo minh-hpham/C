@@ -1,0 +1,225 @@
+
+ex2.so:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000000680 <_init>:
+ 680:	48 83 ec 08          	sub    $0x8,%rsp
+ 684:	48 8b 05 4d 09 20 00 	mov    0x20094d(%rip),%rax        # 200fd8 <_fini+0x2006e4>
+ 68b:	48 85 c0             	test   %rax,%rax
+ 68e:	74 05                	je     695 <_init+0x15>
+ 690:	e8 4b 00 00 00       	callq  6e0 <__gmon_start__@plt>
+ 695:	48 83 c4 08          	add    $0x8,%rsp
+ 699:	c3                   	retq   
+
+Disassembly of section .plt:
+
+00000000000006a0 <f0@plt-0x10>:
+ 6a0:	ff 35 62 09 20 00    	pushq  0x200962(%rip)        # 201008 <_fini+0x200714>
+ 6a6:	ff 25 64 09 20 00    	jmpq   *0x200964(%rip)        # 201010 <_fini+0x20071c>
+ 6ac:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000000006b0 <f0@plt>:
+ 6b0:	ff 25 62 09 20 00    	jmpq   *0x200962(%rip)        # 201018 <_fini+0x200724>
+ 6b6:	68 00 00 00 00       	pushq  $0x0
+ 6bb:	e9 e0 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+00000000000006c0 <f2@plt>:
+ 6c0:	ff 25 5a 09 20 00    	jmpq   *0x20095a(%rip)        # 201020 <_fini+0x20072c>
+ 6c6:	68 01 00 00 00       	pushq  $0x1
+ 6cb:	e9 d0 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+00000000000006d0 <f3@plt>:
+ 6d0:	ff 25 52 09 20 00    	jmpq   *0x200952(%rip)        # 201028 <_fini+0x200734>
+ 6d6:	68 02 00 00 00       	pushq  $0x2
+ 6db:	e9 c0 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+00000000000006e0 <__gmon_start__@plt>:
+ 6e0:	ff 25 4a 09 20 00    	jmpq   *0x20094a(%rip)        # 201030 <_fini+0x20073c>
+ 6e6:	68 03 00 00 00       	pushq  $0x3
+ 6eb:	e9 b0 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+00000000000006f0 <f1@plt>:
+ 6f0:	ff 25 42 09 20 00    	jmpq   *0x200942(%rip)        # 201038 <_fini+0x200744>
+ 6f6:	68 04 00 00 00       	pushq  $0x4
+ 6fb:	e9 a0 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+0000000000000700 <__cxa_finalize@plt>:
+ 700:	ff 25 3a 09 20 00    	jmpq   *0x20093a(%rip)        # 201040 <_fini+0x20074c>
+ 706:	68 05 00 00 00       	pushq  $0x5
+ 70b:	e9 90 ff ff ff       	jmpq   6a0 <_init+0x20>
+
+Disassembly of section .text:
+
+0000000000000710 <f0-0xe8>:
+ 710:	48 8d 05 40 09 20 00 	lea    0x200940(%rip),%rax        # 201057 <_edata+0x7>
+ 717:	48 8d 3d 32 09 20 00 	lea    0x200932(%rip),%rdi        # 201050 <_edata>
+ 71e:	55                   	push   %rbp
+ 71f:	48 29 f8             	sub    %rdi,%rax
+ 722:	48 89 e5             	mov    %rsp,%rbp
+ 725:	48 83 f8 0e          	cmp    $0xe,%rax
+ 729:	77 02                	ja     72d <__cxa_finalize@plt+0x2d>
+ 72b:	5d                   	pop    %rbp
+ 72c:	c3                   	retq   
+ 72d:	48 8b 05 94 08 20 00 	mov    0x200894(%rip),%rax        # 200fc8 <_fini+0x2006d4>
+ 734:	48 85 c0             	test   %rax,%rax
+ 737:	74 f2                	je     72b <__cxa_finalize@plt+0x2b>
+ 739:	5d                   	pop    %rbp
+ 73a:	ff e0                	jmpq   *%rax
+ 73c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 740:	48 8d 05 09 09 20 00 	lea    0x200909(%rip),%rax        # 201050 <_edata>
+ 747:	48 8d 3d 02 09 20 00 	lea    0x200902(%rip),%rdi        # 201050 <_edata>
+ 74e:	55                   	push   %rbp
+ 74f:	48 29 f8             	sub    %rdi,%rax
+ 752:	48 89 e5             	mov    %rsp,%rbp
+ 755:	48 c1 f8 03          	sar    $0x3,%rax
+ 759:	48 89 c2             	mov    %rax,%rdx
+ 75c:	48 c1 ea 3f          	shr    $0x3f,%rdx
+ 760:	48 01 d0             	add    %rdx,%rax
+ 763:	48 d1 f8             	sar    %rax
+ 766:	75 02                	jne    76a <__cxa_finalize@plt+0x6a>
+ 768:	5d                   	pop    %rbp
+ 769:	c3                   	retq   
+ 76a:	48 8b 15 7f 08 20 00 	mov    0x20087f(%rip),%rdx        # 200ff0 <_fini+0x2006fc>
+ 771:	48 85 d2             	test   %rdx,%rdx
+ 774:	74 f2                	je     768 <__cxa_finalize@plt+0x68>
+ 776:	5d                   	pop    %rbp
+ 777:	48 89 c6             	mov    %rax,%rsi
+ 77a:	ff e2                	jmpq   *%rdx
+ 77c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 780:	80 3d c9 08 20 00 00 	cmpb   $0x0,0x2008c9(%rip)        # 201050 <_edata>
+ 787:	75 27                	jne    7b0 <__cxa_finalize@plt+0xb0>
+ 789:	48 83 3d 67 08 20 00 	cmpq   $0x0,0x200867(%rip)        # 200ff8 <_fini+0x200704>
+ 790:	00 
+ 791:	55                   	push   %rbp
+ 792:	48 89 e5             	mov    %rsp,%rbp
+ 795:	74 0c                	je     7a3 <__cxa_finalize@plt+0xa3>
+ 797:	48 8d 3d 62 06 20 00 	lea    0x200662(%rip),%rdi        # 200e00 <_fini+0x20050c>
+ 79e:	e8 5d ff ff ff       	callq  700 <__cxa_finalize@plt>
+ 7a3:	e8 68 ff ff ff       	callq  710 <__cxa_finalize@plt+0x10>
+ 7a8:	5d                   	pop    %rbp
+ 7a9:	c6 05 a0 08 20 00 01 	movb   $0x1,0x2008a0(%rip)        # 201050 <_edata>
+ 7b0:	f3 c3                	repz retq 
+ 7b2:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 nopw %cs:0x0(%rax,%rax,1)
+ 7b9:	1f 84 00 00 00 00 00 
+ 7c0:	48 83 3d 30 06 20 00 	cmpq   $0x0,0x200630(%rip)        # 200df8 <_fini+0x200504>
+ 7c7:	00 
+ 7c8:	74 26                	je     7f0 <__cxa_finalize@plt+0xf0>
+ 7ca:	48 8b 05 0f 08 20 00 	mov    0x20080f(%rip),%rax        # 200fe0 <_fini+0x2006ec>
+ 7d1:	48 85 c0             	test   %rax,%rax
+ 7d4:	74 1a                	je     7f0 <__cxa_finalize@plt+0xf0>
+ 7d6:	55                   	push   %rbp
+ 7d7:	48 8d 3d 1a 06 20 00 	lea    0x20061a(%rip),%rdi        # 200df8 <_fini+0x200504>
+ 7de:	48 89 e5             	mov    %rsp,%rbp
+ 7e1:	ff d0                	callq  *%rax
+ 7e3:	5d                   	pop    %rbp
+ 7e4:	e9 57 ff ff ff       	jmpq   740 <__cxa_finalize@plt+0x40>
+ 7e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 7f0:	e9 4b ff ff ff       	jmpq   740 <__cxa_finalize@plt+0x40>
+ 7f5:	0f 1f 00             	nopl   (%rax)
+
+00000000000007f8 <f0>:
+ 7f8:	55                   	push   %rbp
+ 7f9:	48 89 e5             	mov    %rsp,%rbp
+ 7fc:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 7ff:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ 803:	74 0b                	je     810 <f0+0x18>
+ 805:	48 8b 05 c4 07 20 00 	mov    0x2007c4(%rip),%rax        # 200fd0 <_fini+0x2006dc>
+ 80c:	8b 00                	mov    (%rax),%eax
+ 80e:	eb 05                	jmp    815 <f0+0x1d>
+ 810:	b8 05 00 00 00       	mov    $0x5,%eax
+ 815:	5d                   	pop    %rbp
+ 816:	c3                   	retq   
+
+0000000000000817 <f1>:
+ 817:	55                   	push   %rbp
+ 818:	48 89 e5             	mov    %rsp,%rbp
+ 81b:	48 83 ec 10          	sub    $0x10,%rsp
+ 81f:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 822:	83 7d fc 09          	cmpl   $0x9,-0x4(%rbp)
+ 826:	7e 07                	jle    82f <f1+0x18>
+ 828:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 82d:	eb 2c                	jmp    85b <f1+0x44>
+ 82f:	83 7d fc 04          	cmpl   $0x4,-0x4(%rbp)
+ 833:	7e 0b                	jle    840 <f1+0x29>
+ 835:	48 8b 05 ac 07 20 00 	mov    0x2007ac(%rip),%rax        # 200fe8 <_fini+0x2006f4>
+ 83c:	8b 00                	mov    (%rax),%eax
+ 83e:	eb 1b                	jmp    85b <f1+0x44>
+ 840:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ 844:	7e 0b                	jle    851 <f1+0x3a>
+ 846:	48 8b 05 83 07 20 00 	mov    0x200783(%rip),%rax        # 200fd0 <_fini+0x2006dc>
+ 84d:	8b 00                	mov    (%rax),%eax
+ 84f:	eb 0a                	jmp    85b <f1+0x44>
+ 851:	bf 00 00 00 00       	mov    $0x0,%edi
+ 856:	e8 55 fe ff ff       	callq  6b0 <f0@plt>
+ 85b:	c9                   	leaveq 
+ 85c:	c3                   	retq   
+
+000000000000085d <f2>:
+ 85d:	55                   	push   %rbp
+ 85e:	48 89 e5             	mov    %rsp,%rbp
+ 861:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 864:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ 868:	74 0b                	je     875 <f2+0x18>
+ 86a:	48 8b 05 77 07 20 00 	mov    0x200777(%rip),%rax        # 200fe8 <_fini+0x2006f4>
+ 871:	8b 00                	mov    (%rax),%eax
+ 873:	eb 05                	jmp    87a <f2+0x1d>
+ 875:	b8 00 00 00 00       	mov    $0x0,%eax
+ 87a:	5d                   	pop    %rbp
+ 87b:	c3                   	retq   
+
+000000000000087c <f3>:
+ 87c:	55                   	push   %rbp
+ 87d:	48 89 e5             	mov    %rsp,%rbp
+ 880:	48 83 ec 10          	sub    $0x10,%rsp
+ 884:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 887:	83 7d fc 01          	cmpl   $0x1,-0x4(%rbp)
+ 88b:	7f 0c                	jg     899 <f3+0x1d>
+ 88d:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ 890:	89 c7                	mov    %eax,%edi
+ 892:	e8 19 fe ff ff       	callq  6b0 <f0@plt>
+ 897:	eb 0a                	jmp    8a3 <f3+0x27>
+ 899:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ 89c:	89 c7                	mov    %eax,%edi
+ 89e:	e8 1d fe ff ff       	callq  6c0 <f2@plt>
+ 8a3:	c9                   	leaveq 
+ 8a4:	c3                   	retq   
+
+00000000000008a5 <g0>:
+ 8a5:	55                   	push   %rbp
+ 8a6:	48 89 e5             	mov    %rsp,%rbp
+ 8a9:	48 83 ec 10          	sub    $0x10,%rsp
+ 8ad:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 8b0:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ 8b4:	74 0c                	je     8c2 <g0+0x1d>
+ 8b6:	8b 45 fc             	mov    -0x4(%rbp),%eax
+ 8b9:	89 c7                	mov    %eax,%edi
+ 8bb:	e8 30 fe ff ff       	callq  6f0 <f1@plt>
+ 8c0:	eb 05                	jmp    8c7 <g0+0x22>
+ 8c2:	b8 03 00 00 00       	mov    $0x3,%eax
+ 8c7:	c9                   	leaveq 
+ 8c8:	c3                   	retq   
+
+00000000000008c9 <g1>:
+ 8c9:	55                   	push   %rbp
+ 8ca:	48 89 e5             	mov    %rsp,%rbp
+ 8cd:	48 83 ec 10          	sub    $0x10,%rsp
+ 8d1:	89 7d fc             	mov    %edi,-0x4(%rbp)
+ 8d4:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+ 8d8:	74 0c                	je     8e6 <g1+0x1d>
+ 8da:	bf 0b 00 00 00       	mov    $0xb,%edi
+ 8df:	e8 0c fe ff ff       	callq  6f0 <f1@plt>
+ 8e4:	eb 0a                	jmp    8f0 <g1+0x27>
+ 8e6:	bf 03 00 00 00       	mov    $0x3,%edi
+ 8eb:	e8 e0 fd ff ff       	callq  6d0 <f3@plt>
+ 8f0:	c9                   	leaveq 
+ 8f1:	c3                   	retq   
+ 8f2:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .fini:
+
+00000000000008f4 <_fini>:
+ 8f4:	48 83 ec 08          	sub    $0x8,%rsp
+ 8f8:	48 83 c4 08          	add    $0x8,%rsp
+ 8fc:	c3                   	retq   
